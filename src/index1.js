@@ -6,7 +6,7 @@ const port = 8000;
 
 //Built-in Middleware
 const staticPath = path.join(__dirname,"../public");
-const templatePath = path.join(__dirname,"../templates/src")
+const templatePath = path.join(__dirname,"../templates/views")
 const partialPath = path.join(__dirname,"../templates/partials")
 
 //to use template engine 1st we have to set that engine
@@ -16,6 +16,7 @@ app.set("views",templatePath);
 hbs.registerPartials(partialPath);
 
 //Template engine route
+//enables to use static template files in your application
 app.get("",(req,res)=>{
     res.render("index");
 });
@@ -28,7 +29,7 @@ app.get("/about",(req,res)=>{
  
 app.get("/about/*",(req,res)=>{
     req.render("404",{
-        errorcomment :"Oops this aboutaus page couldn't be found."
+        errorcomment :"Oops this abouteus page couldn't be found."
     });
 });
 
